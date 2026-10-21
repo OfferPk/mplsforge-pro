@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="1000" height="500">
+  <defs>
+    <linearGradient id="bgArchMpls" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#040711"/>
+      <stop offset="100%" stop-color="#010308"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1000" height="500" fill="url(#bgArchMpls)"/>
+
+  <text x="500" y="45" fill="#ffffff" font-family="-apple-system, sans-serif" font-weight="700" font-size="20" text-anchor="middle">
+    MPLS Backbone: Vulnerable MTU Blackhole vs Zero-Trust Engineered Architecture
+  </text>
+
+  <!-- Left: Vulnerable Architecture -->
+  <rect x="40" y="80" width="430" height="380" rx="10" fill="#14060c" stroke="#ef4444" stroke-width="1.5"/>
+  <rect x="55" y="95" width="400" height="34" rx="6" fill="#ef4444" fill-opacity="0.2"/>
+  <text x="255" y="118" fill="#f87171" font-family="-apple-system, sans-serif" font-weight="700" font-size="14" text-anchor="middle">
+    Hazardous: MTU Blackhole &amp; LDP Desync
+  </text>
+
+  <rect x="55" y="145" width="400" height="60" rx="6" fill="#02040a" stroke="#242f5d"/>
+  <text x="70" y="170" fill="#fca5a5" font-family="monospace" font-size="11">Standard 1500B MTU &bull; LDP-IGP Sync Disabled</text>
+  <text x="70" y="190" fill="#ef4444" font-family="-apple-system, sans-serif" font-size="11">Plaintext TCP 646 &bull; No Fast Reroute &bull; ECMP Polarization</text>
+
+  <rect x="55" y="220" width="400" height="220" rx="6" fill="#1c0710" stroke="#ef4444" stroke-opacity="0.4"/>
+  <text x="70" y="245" fill="#f87171" font-family="-apple-system, sans-serif" font-weight="700" font-size="12">CRITICAL BACKBONE FAILURE MODES:</text>
+  <text x="70" y="275" fill="#fca5a5" font-family="-apple-system, sans-serif" font-size="11">&bull; Multi-label packets exceed 1500B MTU and are silently dropped in core</text>
+  <text x="70" y="305" fill="#fca5a5" font-family="-apple-system, sans-serif" font-size="11">&bull; Recovered links route traffic before LDP labels converge (total outage)</text>
+  <text x="70" y="335" fill="#fca5a5" font-family="-apple-system, sans-serif" font-size="11">&bull; Egress PE drops 6PE packets due to unmanaged Implicit Null popping</text>
+  <text x="70" y="365" fill="#fca5a5" font-family="-apple-system, sans-serif" font-size="11">&bull; ECMP polarization concentrates traffic on single spine-leaf link</text>
+  <text x="70" y="415" fill="#ef4444" font-family="-apple-system, sans-serif" font-weight="700" font-size="12">SILENT PACKET LOSS &bull; CONVERGENCE BLACKHOLE &bull; ZERO SLA</text>
+
+  <!-- Right: Hardened Architecture -->
+  <rect x="530" y="80" width="430" height="380" rx="10" fill="#041a12" stroke="#10b981" stroke-width="1.5"/>
+  <rect x="545" y="95" width="400" height="34" rx="6" fill="#10b981" fill-opacity="0.2"/>
+  <text x="745" y="118" fill="#34d399" font-family="-apple-system, sans-serif" font-weight="700" font-size="14" text-anchor="middle">
+    Hardened: MPLSForge Zero-Trust
+  </text>
+
+  <rect x="545" y="145" width="400" height="60" rx="6" fill="#02040a" stroke="#1e293b"/>
+  <text x="560" y="170" fill="#34d399" font-family="monospace" font-size="11">Jumbo 9216B MTU &bull; RFC 5443 LDP-IGP Sync Active</text>
+  <text x="560" y="190" fill="#38bdf8" font-family="monospace" font-size="11">TI-LFA Sub-50ms &bull; RFC 6790 Entropy Labels &bull; TCP-AO Auth</text>
+
+  <rect x="545" y="220" width="400" height="220" rx="6" fill="#062e22" stroke="#10b981" stroke-opacity="0.4"/>
+  <text x="560" y="245" fill="#34d399" font-family="-apple-system, sans-serif" font-weight="700" font-size="12">CARRIER &amp; CLOUD WAN GUARANTEES:</text>
+  <text x="560" y="275" fill="#d1fae5" font-family="-apple-system, sans-serif" font-size="11">&bull; 7700B+ MTU headroom safely absorbs deep SR-MPLS &amp; EVPN label stacks</text>
+  <text x="560" y="305" fill="#d1fae5" font-family="-apple-system, sans-serif" font-size="11">&bull; IGP high-metric hold-down stops routing over links until LDP converges</text>
+  <text x="560" y="335" fill="#d1fae5" font-family="-apple-system, sans-serif" font-size="11">&bull; Explicit Null (Label 0/2) preserves QoS EXP bits and IPv6 identification</text>
+  <text x="560" y="365" fill="#d1fae5" font-family="-apple-system, sans-serif" font-size="11">&bull; Entropy Labels enable balanced ECMP hashing across spine-leaf fabrics</text>
+  <text x="560" y="415" fill="#10b981" font-family="-apple-system, sans-serif" font-weight="700" font-size="12">RFC 3032 &bull; CISCO IOS-XR, JUNIPER, NOKIA &amp; LINUX COMPLIANT</text>
+</svg>
